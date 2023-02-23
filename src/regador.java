@@ -67,37 +67,29 @@ public class regador {
 
         switch (cadena) {
             case "000":
-                System.out.println("ENTRO A");
-                cadena = "Tanque basio, NO regar";
-                ;
+                cadena = "Tanque vacio, NO regar";
+                break;
             case "001":
-                System.out.println("ENTRO B");
-                cadena = "Tanque basio, SI regar";
-                ;
+                cadena = "Tanque vacio, SI regar";
+                break;
             case "010":
-                System.out.println("ENTRO C");
                 cadena = "Tanque medio lleno, NO regar";
-                ;
+                break;
             case "011":
-                System.out.println("ENTRO D");
                 cadena = "Tanque medio lleno, SI regar";
-                ;
+                break;
             case "100":
-                System.out.println("ENTRO E");
                 cadena = "Tanque CASI lleno, NO regar";
-                ;
+                break;
             case "101":
-                System.out.println("ENTRO F");
                 cadena = "Tanque CASI lleno, SI regar";
-                ;
+                break;
             case "110":
-                System.out.println("ENTRO G");
                 cadena = "Tanque lleno, NO regar";
-                ;
+                break;
             case "111":
-                System.out.println("ENTRO H");
                 cadena = "Tanque lleno, SI regar";
-                ;
+                break;
         }
 
         return cadena;
@@ -136,12 +128,14 @@ public class regador {
                 //caso 1, descripcion instrucciones
                 case 1:
                     break;
-                //caso 2, insercion de ER
+                //caso 2, insercion de ER2
                 case 2:
                     erCadena = objRegar.expresionRegular();
-                    String erUsuario = objRegar.erUsuario;
-                    System.out.println("\nLa expresion regular de " + erUsuario + " es = ");
-                    System.out.println(erCadena);
+                    System.out.println("┌──────────────────────────────────┐");
+                    System.out.println("│ La expresion regular de " + objRegar.erUsuario + " es = │");
+                    System.out.println("├──────────────────────────────────┤");
+                    System.out.println("│  '"+erCadena+"'   │");
+                    System.out.println("└──────────────────────────────────┘");
                     break;
                 //caso 3, salida del menu
                 case 3:
