@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
 import re
 
 def mostrar_reglas():
-    print("Expresión regular: (0000|0101|1010|1111)*")
+    print("∑={0,1}") #sp32
+    print("Expresión regular: {0·00·(1|0)·(1|0)·000}|{1·(01|10|11)·[[(00)·(11)]|[(01)·(10)]|[(10)·(01)]·1]|[(11)·(00)]·0} · {0·00·(1|0)·(1|0)·000}|{1·(01|10|11)·[[(00)·(11)]|[(01)·(10)]|[(10)·(01)]·1]|[(11)·(00)]·0}*") #sp32
     print("Reglas:")
     print("1. La cadena debe contener únicamente los caracteres 0 y 1.")
     print("2. La cadena debe contener solamente las subcadenas 0000, 0101, 1010, 1111.")
@@ -9,7 +11,7 @@ def mostrar_reglas():
     print()
 
 def validar_cadena(cadena):
-    patron = re.compile("(0000|0101|1010|1111)")
+    patron = re.compile("(000(1|0)(1|0)000)|(1(01|10|11)(((00)(11))|((01)(10))|((10)(01))1)|((11)(00))0)")
     if patron.fullmatch(cadena) is not None:#?fullmatch retorna none si no hay matcheo en cadena por ende si no es none la cadena es valida
         return "Cadena válida"
     else:
@@ -17,11 +19,12 @@ def validar_cadena(cadena):
 def salir():
     print("saliendo del programa gracias por participar en esta prueba")
 
-opcion = 0#*definimos una variable de tipo entero inicializada en cero
+#*definimos una variable de tipo entero inicializada en cero
+opcion = 0
 opciones = {
     1:mostrar_reglas,
-    2:lambda: print(validar_cadena(input("Ingrese la cadena a validar: "))),#lambda permite ejecutar una funcion en esa opcion que requiera de otra cosa
-    3:salir                                                                 #si se pone sin lambda entra a opcion 2 enseguida sin pedir opcion
+    2:lambda:print(validar_cadena(input("Ingrese la cadena a validar: "))),
+    3:salir
 }
 
 while opcion != 3:
@@ -35,4 +38,3 @@ while opcion != 3:
         opciones[opcion]()#ejecuta lo que se mande a llamar en la opcion ingresada (1,2,3)
     else:
         print("Elija una opcion valida")
-    
