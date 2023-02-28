@@ -14,7 +14,7 @@ def mostrar_reglas():
 
 """ La función validar_cadena() valida la cadena que se ingrese mediante la expresión regular. """
 def validar_cadena(cadena):
-    patron = re.compile("(000(1|0)(1|0)000)|(1(01|10|11)((((00)(11))|((01)(10))|((10)(01)))1)|((11)(00))0)")
+    patron = re.compile("(000(1|0)(1|0)000)|(1(01|10|11)((((00)(11))|((01)(10))|((10)(01)))1)|((11)(00))0)((000(1|0)(1|0)000)|(1(01|10|11)((((00)(11))|((01)(10))|((10)(01)))1)|((11)(00))0))*")
     if patron.fullmatch(cadena) is not None:#?fullmatch retorna none si no hay matcheo en cadena por ende si no es none la cadena es valida
         return "Cadena válida"
     else:
@@ -36,14 +36,18 @@ opciones = {
 }
 
 """ Esta sección de código permite mostrar un menú contextual para que el usuario vea las opciones y dependiendo de la opción que eliga se va a ejecutar una función """
+
 while opcion != 3:
     print("Menú:")
     print("1. Ver reglas y expresión regular") 
     print("2. Validar cadena")
     print("3. Salir")
-    opcion = int(input("Seleccione una opción(1-3): "))
+    try:
+        opcion = int(input("Seleccione una opción(1-3): "))
 
-    if opcion in opciones:
-        opciones[opcion]()#ejecuta lo que se mande a llamar en la opcion ingresada (1,2,3)
-    else:
-        print("Elija una opcion valida")
+        if opcion in opciones:
+            opciones[opcion]()#ejecuta lo que se mande a llamar en la opcion ingresada (1,2,3)
+        else:
+            print("ELIJA UNA OPCION VALIDA")
+    except ValueError:
+        print("Favor de ingresar un número")
