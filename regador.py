@@ -4,7 +4,7 @@ import re
 """ La función mostrar_reglas() muestra las reglas de la expresión regular para la construcción de las cadenas válidas. """
 def mostrar_reglas():
     print("∑={0,1}") #sp32
-    print("Expresión regular: ((0|1)(0|1)(0|1)(0|1)(0|1))((0|1)(0|1)(0|1)(0|1)(0|1))*") #sp32
+    print("Expresión regular: ((0|1)(0|1)(0|1)(0|1))((0|1)(0|1)(0|1)(0|1))*") #sp32
     print("L = {Lenguaje de todas las cadenas del alfabeto ∑ cuya longitud es de 5 caracteres o múltiplos de 5 que son la combinación de 0’s o 1’s.}")
     print("Reglas:")
     print("1. La cadena debe contener únicamente los caracteres 0 y 1.")
@@ -14,7 +14,7 @@ def mostrar_reglas():
 
 """ La función validar_cadena() valida la cadena que se ingrese mediante la expresión regular. """
 def validar_cadena(cadena):
-    patron = re.compile("((0|1)(0|1)(0|1)(0|1)(0|1))((0|1)(0|1)(0|1)(0|1)(0|1))*")
+    patron = re.compile("((0|1)(0|1)(0|1)(0|1))((0|1)(0|1)(0|1)(0|1))*")
     
     if patron.fullmatch(cadena) is not None:#?fullmatch retorna none si no hay matcheo en cadena por ende si no es none la cadena es valida
         return "Cadena válida"
